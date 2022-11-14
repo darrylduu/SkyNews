@@ -52,6 +52,7 @@ namespace SkyNews
             this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnLink = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
@@ -69,6 +70,7 @@ namespace SkyNews
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.flowLayoutPanel);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.listViewActivities);
             this.tabPage1.Controls.Add(this.pictureIcon);
@@ -107,7 +109,7 @@ namespace SkyNews
             // 
             this.labelPressure.AutoSize = true;
             this.labelPressure.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPressure.Location = new System.Drawing.Point(132, 457);
+            this.labelPressure.Location = new System.Drawing.Point(485, 236);
             this.labelPressure.Name = "labelPressure";
             this.labelPressure.Size = new System.Drawing.Size(42, 24);
             this.labelPressure.TabIndex = 12;
@@ -117,7 +119,7 @@ namespace SkyNews
             // 
             this.labelWindspeed.AutoSize = true;
             this.labelWindspeed.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWindspeed.Location = new System.Drawing.Point(132, 414);
+            this.labelWindspeed.Location = new System.Drawing.Point(485, 193);
             this.labelWindspeed.Name = "labelWindspeed";
             this.labelWindspeed.Size = new System.Drawing.Size(42, 24);
             this.labelWindspeed.TabIndex = 11;
@@ -128,7 +130,7 @@ namespace SkyNews
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(10, 457);
+            this.label10.Location = new System.Drawing.Point(363, 236);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(86, 24);
             this.label10.TabIndex = 10;
@@ -138,7 +140,7 @@ namespace SkyNews
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 414);
+            this.label11.Location = new System.Drawing.Point(363, 193);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(116, 24);
             this.label11.TabIndex = 9;
@@ -258,7 +260,7 @@ namespace SkyNews
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(731, 81);
+            this.label2.Location = new System.Drawing.Point(798, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 35);
             this.label2.TabIndex = 17;
@@ -271,10 +273,10 @@ namespace SkyNews
             this.columnDescription,
             this.columnLink});
             this.listViewActivities.HideSelection = false;
-            this.listViewActivities.Location = new System.Drawing.Point(737, 121);
+            this.listViewActivities.Location = new System.Drawing.Point(804, 43);
             this.listViewActivities.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listViewActivities.Name = "listViewActivities";
-            this.listViewActivities.Size = new System.Drawing.Size(228, 369);
+            this.listViewActivities.Size = new System.Drawing.Size(228, 338);
             this.listViewActivities.TabIndex = 16;
             this.listViewActivities.UseCompatibleStateImageBehavior = false;
             this.listViewActivities.View = System.Windows.Forms.View.Details;
@@ -290,6 +292,13 @@ namespace SkyNews
             // columnLink
             // 
             this.columnLink.Text = "Link";
+            // 
+            // flowLayoutPanel
+            // 
+            this.flowLayoutPanel.Location = new System.Drawing.Point(73, 408);
+            this.flowLayoutPanel.Name = "flowLayoutPanel";
+            this.flowLayoutPanel.Size = new System.Drawing.Size(921, 148);
+            this.flowLayoutPanel.TabIndex = 18;
             // 
             // Main
             // 
@@ -334,6 +343,7 @@ namespace SkyNews
         private System.Windows.Forms.ColumnHeader columnTitle;
         private System.Windows.Forms.ColumnHeader columnDescription;
         private System.Windows.Forms.ColumnHeader columnLink;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
     }
 }
 

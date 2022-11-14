@@ -16,6 +16,9 @@ namespace SkyNews
     public partial class Main : Form
     {
         string APIKey = "10272f136f947a75efb69dcc09e674ac";
+        double lon;
+        double lat;
+
         void getWeather()
         {
             using (WebClient web = new WebClient())
@@ -28,12 +31,48 @@ namespace SkyNews
                 labelCondition.Text = Info.weather[0].main;
                 labelDetails.Text = Info.weather[0].desc;
 
-                labelSunrise.Text = Info.system.sunrise.ToString();
-                labelSunrise.Text = Info.system.sunset.ToString();
+                //labelSunrise.Text = convertDateTine(Info.system.sunrise).ToShortTimeString();
+                //labelSunrise.Text = convertDateTine(Info.system.sunset).ToShortTimeString();
 
                 labelWindspeed.Text = Info.wind.speed.ToString();
                 labelPressure.Text = Info.main.pressure.ToString();
+
+                lon = Info.coord.lon;
+                lat = Info.coord.lat;
             }
+
+        }
+
+        DateTime convertDateTine(long seconds)
+        {
+            DateTime day = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc).ToLocalTime();
+            day = day.AddSeconds(seconds).ToLocalTime();
+
+            return day;
+        }
+
+        void getForecast()
+        {
+            using (WebClient web = new WebClient())
+            {
+                string url = string.Format("https://api.openweathermap.org/data/3.0/onecall?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&appid={2}", lat, lon, APIKey);
+                var json = web.DownloadString(url);
+                WeatherForecast.ForecastInfo ForecastInfo= JsonConvert.DeserializeObject<WeatherForecast.ForecastInfo>(json);
+
+                ForecastUC FUC;
+                for (int i = 0; i < 8; i++)
+                {
+                    FUC = new ForecastUC();
+                    FUC.pictureBoxWeatherIcon.ImageLocation = "https://api.openweathermap.org/img/w/" + ForecastInfo.daily[i]
+                        .weather[0].icon + ".png";
+                    FUC.labelMainWeather.Text = ForecastInfo.daily[i].weather[0].main;
+                    FUC.labelWeatherDescription.Text = ForecastInfo.daily[i].weather[0].description;
+                    FUC.labeldt.Text = convertDateTine(ForecastInfo.daily[i].dt).DayOfWeek.ToString();
+
+                    flowLayoutPanel.Controls.Add(FUC);
+                }
+            }
+
         }
 
         public Main()
@@ -55,6 +94,7 @@ namespace SkyNews
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             getWeather();
+            getForecast();
         }
 
         private void label2_Click(object sender, EventArgs e)

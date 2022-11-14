@@ -49,7 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\WeatherForecast.cs" />
     <Compile Include="BLL\WeatherInfo.cs" />
+    <Compile Include="ForecastUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ForecastUC.Designer.cs">
+      <DependentUpon>ForecastUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ForecastUC.resx">
+      <DependentUpon>ForecastUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>

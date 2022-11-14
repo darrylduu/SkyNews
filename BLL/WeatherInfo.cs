@@ -93,7 +93,6 @@ namespace SkyNews.BLL
         public class main
         {
             public double temp { get; set; }
-            public double feelsLike { get; set; }
             public double pressure { get; set; }
             public double humidity { get; set; }
         }
@@ -109,7 +108,7 @@ namespace SkyNews.BLL
 
         public class root
         {
-            coordinates coord { get; set; }
+            public coordinates coord { get; set; }
             public List <weather> weather { get; set; }
             public main main { get; set; }
             public wind wind { get; set; }
