@@ -47,6 +47,11 @@ namespace SkyNews
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelDateTime = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listViewActivities = new System.Windows.Forms.ListView();
+            this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnLink = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
@@ -64,6 +69,8 @@ namespace SkyNews
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.listViewActivities);
             this.tabPage1.Controls.Add(this.pictureIcon);
             this.tabPage1.Controls.Add(this.labelPressure);
             this.tabPage1.Controls.Add(this.labelWindspeed);
@@ -247,14 +254,51 @@ namespace SkyNews
             this.labelDateTime.Text = "label1";
             this.labelDateTime.Click += new System.EventHandler(this.labelDateTime_Click);
             // 
-            // Form1
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(731, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 35);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Activities";
+            // 
+            // listViewActivities
+            // 
+            this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnTitle,
+            this.columnDescription,
+            this.columnLink});
+            this.listViewActivities.HideSelection = false;
+            this.listViewActivities.Location = new System.Drawing.Point(737, 121);
+            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listViewActivities.Name = "listViewActivities";
+            this.listViewActivities.Size = new System.Drawing.Size(228, 369);
+            this.listViewActivities.TabIndex = 16;
+            this.listViewActivities.UseCompatibleStateImageBehavior = false;
+            this.listViewActivities.View = System.Windows.Forms.View.Details;
+            // 
+            // columnTitle
+            // 
+            this.columnTitle.Text = "Title";
+            // 
+            // columnDescription
+            // 
+            this.columnDescription.Text = "Description";
+            // 
+            // columnLink
+            // 
+            this.columnLink.Text = "Link";
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 609);
             this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -285,6 +329,11 @@ namespace SkyNews
         private System.Windows.Forms.Label labelCondition;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.PictureBox pictureIcon;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listViewActivities;
+        private System.Windows.Forms.ColumnHeader columnTitle;
+        private System.Windows.Forms.ColumnHeader columnDescription;
+        private System.Windows.Forms.ColumnHeader columnLink;
     }
 }
 
