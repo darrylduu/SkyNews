@@ -77,7 +77,7 @@ namespace SkyNews.BLL
                 }
             }
         }
-        public class coordinates
+        public class coord
         {
             public double lon { get; set; }
             public double lat { get; set; }
@@ -86,7 +86,7 @@ namespace SkyNews.BLL
         public class weather
         {
             public string main { get; set; }
-            public string desc { get; set; }
+            public string description { get; set; }
             public string icon { get; set; }
         }
 
@@ -100,19 +100,18 @@ namespace SkyNews.BLL
         {
             public double speed { get; set; }
         }
-        public class system
+        public class sys
         {
-            public long sunrise { get; set; }
-            public long sunset { get; set; }
+            public string country { get; set; }
         }
 
         public class root
         {
-            public coordinates coord { get; set; }
+            public coord coord { get; set; }
             public List <weather> weather { get; set; }
             public main main { get; set; }
             public wind wind { get; set; }
-            public system system { get; set; }
+            public sys sys { get; set; }
         }
     }
 }
