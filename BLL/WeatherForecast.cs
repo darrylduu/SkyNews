@@ -10,7 +10,8 @@ namespace SkyNews.BLL
     {
         public class temp
         {
-            public double day { get; set; }
+            public double min { get; set; }
+            public double max { get; set; }
         }
         public class weather
         {

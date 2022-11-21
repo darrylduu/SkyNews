@@ -27,12 +27,10 @@ namespace SkyNews
                 var json = web.DownloadString(url);
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
 
-                WeatherInfo.root outPut = Info;
-
                 pictureIcon.ImageLocation = "https://openweathermap.org/img/w/" + Info.weather[0].icon + ".png";
                 labelCondition.Text = Info.weather[0].main;
                 labelDetails.Text = Info.weather[0].description;
-                labelTemp.Text = string.Format("{0}\u00B0"+"C", outPut.main.temp);
+                labelTemp.Text = Info.main.temp.ToString() + "°C";
                 labelCountry.Text = Info.sys.country.ToString();
                 labelWindspeed.Text = Info.wind.speed.ToString() + " Km/h";
                 labelPressure.Text = Info.main.pressure.ToString() +  " hPa";
@@ -55,7 +53,7 @@ namespace SkyNews
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("https://api.openweathermap.org/data/3.0/onecall?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&appid={2}", lat, lon, APIKey);
+                string url = string.Format("https://api.openweathermap.org/data/3.0/onecall?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&units=metric&appid={2}", lat, lon, APIKey);
                 var json = web.DownloadString(url);
                 WeatherForecast.ForecastInfo ForecastInfo= JsonConvert.DeserializeObject<WeatherForecast.ForecastInfo>(json);
 
@@ -68,6 +66,8 @@ namespace SkyNews
                     FUC.labelMainWeather.Text = ForecastInfo.daily[i].weather[0].main;
                     FUC.labelWeatherDescription.Text = ForecastInfo.daily[i].weather[0].description;
                     FUC.labeldt.Text = convertDateTine(ForecastInfo.daily[i].dt).DayOfWeek.ToString();
+                    FUC.labelMin.Text = ForecastInfo.daily[i].temp.min.ToString() + "°C";
+                    FUC.labelMax.Text = ForecastInfo.daily[i].temp.max.ToString() + "°C";
 
                     flowLayoutPanel.Controls.Add(FUC);
                 }
@@ -78,7 +78,7 @@ namespace SkyNews
         public Main()
         {
             InitializeComponent();
-            labelDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy, hh:mm:ss");
+            labelDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy");
         }
 
         private void labelDateTime_Click(object sender, EventArgs e)

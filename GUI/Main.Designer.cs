@@ -95,9 +95,11 @@ namespace SkyNews
             // 
             // flowLayoutPanel
             // 
-            this.flowLayoutPanel.Location = new System.Drawing.Point(73, 408);
+            this.flowLayoutPanel.AutoScroll = true;
+            this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(2, 408);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(921, 148);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(1063, 148);
             this.flowLayoutPanel.TabIndex = 18;
             // 
             // label2
@@ -271,7 +273,7 @@ namespace SkyNews
             // labelDateTime
             // 
             this.labelDateTime.AutoSize = true;
-            this.labelDateTime.Location = new System.Drawing.Point(780, 9);
+            this.labelDateTime.Location = new System.Drawing.Point(870, 9);
             this.labelDateTime.Name = "labelDateTime";
             this.labelDateTime.Size = new System.Drawing.Size(51, 20);
             this.labelDateTime.TabIndex = 1;

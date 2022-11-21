@@ -37,19 +37,18 @@ namespace SkyNews.GUI
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(259, -60);
+            this.pictureBox1.Location = new System.Drawing.Point(255, 67);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(900, 560);
+            this.pictureBox1.Size = new System.Drawing.Size(604, 376);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
             // Load
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1419, 790);
+            this.ClientSize = new System.Drawing.Size(1115, 642);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Load";
@@ -62,6 +61,7 @@ namespace SkyNews.GUI
         }
 
         #endregion
+
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -33,6 +33,10 @@ namespace SkyNews
             this.labeldt = new System.Windows.Forms.Label();
             this.labelMainWeather = new System.Windows.Forms.Label();
             this.labelWeatherDescription = new System.Windows.Forms.Label();
+            this.labelt = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelMin = new System.Windows.Forms.Label();
+            this.labelMax = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWeatherIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,16 +78,60 @@ namespace SkyNews
             this.labelWeatherDescription.TabIndex = 3;
             this.labelWeatherDescription.Text = "Description";
             // 
+            // labelt
+            // 
+            this.labelt.AutoSize = true;
+            this.labelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelt.Location = new System.Drawing.Point(222, 19);
+            this.labelt.Name = "labelt";
+            this.labelt.Size = new System.Drawing.Size(50, 25);
+            this.labelt.TabIndex = 4;
+            this.labelt.Text = "Min:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(222, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Max:";
+            // 
+            // labelMin
+            // 
+            this.labelMin.AutoSize = true;
+            this.labelMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMin.Location = new System.Drawing.Point(278, 19);
+            this.labelMin.Name = "labelMin";
+            this.labelMin.Size = new System.Drawing.Size(46, 25);
+            this.labelMin.TabIndex = 6;
+            this.labelMin.Text = "N/A";
+            // 
+            // labelMax
+            // 
+            this.labelMax.AutoSize = true;
+            this.labelMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMax.Location = new System.Drawing.Point(278, 44);
+            this.labelMax.Name = "labelMax";
+            this.labelMax.Size = new System.Drawing.Size(46, 25);
+            this.labelMax.TabIndex = 7;
+            this.labelMax.Text = "N/A";
+            // 
             // ForecastUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelMax);
+            this.Controls.Add(this.labelMin);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelt);
             this.Controls.Add(this.labelWeatherDescription);
             this.Controls.Add(this.labelMainWeather);
             this.Controls.Add(this.labeldt);
             this.Controls.Add(this.pictureBoxWeatherIcon);
             this.Name = "ForecastUC";
-            this.Size = new System.Drawing.Size(580, 113);
+            this.Size = new System.Drawing.Size(350, 113);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWeatherIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -96,5 +144,9 @@ namespace SkyNews
         public System.Windows.Forms.Label labeldt;
         public System.Windows.Forms.Label labelMainWeather;
         public System.Windows.Forms.Label labelWeatherDescription;
+        public System.Windows.Forms.Label labelt;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label labelMin;
+        public System.Windows.Forms.Label labelMax;
     }
 }
