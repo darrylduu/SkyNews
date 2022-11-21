@@ -16,12 +16,12 @@ namespace SkyNews.GUI
         public Load()
         {
             InitializeComponent();
-            for(int i = 1; i <= 100; i++)
-            {
-                Thread.Sleep(5);
-                circularProgressBar.Value = i;
-                circularProgressBar.Update();
-            }
+            //for(int i = 1; i <= 100; i++)
+            //{
+            //    Thread.Sleep(5);
+            //    circularProgressBar.Value = i;
+            //    circularProgressBar.Update();
+            //}
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -31,15 +31,20 @@ namespace SkyNews.GUI
 
         private void Load_Load(object sender, EventArgs e)
         {
-            circularProgressBar.Value = 0;
-            circularProgressBar.Minimum = 0;
-            circularProgressBar.Maximum = 100;
-            if (circularProgressBar.Value == 100)
+            //circularProgressBar.Value = 0;
+            //circularProgressBar.Minimum = 0;
+            //circularProgressBar.Maximum = 100;
+            //if (circularProgressBar.Value == 100)
             {
                 this.Hide();
                 Main form = new Main();
                 form.ShowDialog();
             }
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

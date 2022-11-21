@@ -191,10 +191,10 @@ namespace SkyNews
             // labelCountry
             // 
             this.labelCountry.AutoSize = true;
-            this.labelCountry.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCountry.Location = new System.Drawing.Point(10, 357);
+            this.labelCountry.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountry.Location = new System.Drawing.Point(137, 157);
             this.labelCountry.Name = "labelCountry";
-            this.labelCountry.Size = new System.Drawing.Size(77, 24);
+            this.labelCountry.Size = new System.Drawing.Size(137, 44);
             this.labelCountry.TabIndex = 6;
             this.labelCountry.Text = "Country";
             // 

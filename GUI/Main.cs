@@ -23,7 +23,7 @@ namespace SkyNews
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&appid={1}", textBoxCity.Text, APIKey);
+                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}&units=metric&appid={1}", textBoxCity.Text, APIKey);
                 var json = web.DownloadString(url);
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
 
@@ -34,8 +34,8 @@ namespace SkyNews
                 labelDetails.Text = Info.weather[0].description;
                 labelTemp.Text = string.Format("{0}\u00B0"+"C", outPut.main.temp);
                 labelCountry.Text = Info.sys.country.ToString();
-                labelWindspeed.Text = Info.wind.speed.ToString();
-                labelPressure.Text = Info.main.pressure.ToString();
+                labelWindspeed.Text = Info.wind.speed.ToString() + " Km/h";
+                labelPressure.Text = Info.main.pressure.ToString() +  " hPa";
 
                 lon = Info.coord.lon;
                 lat = Info.coord.lat;
@@ -55,7 +55,7 @@ namespace SkyNews
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/forecast?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&appid={2}", lat, lon, APIKey);
+                string url = string.Format("https://api.openweathermap.org/data/3.0/onecall?lat={0}&lon={1}&exclude=current,minutely,hourly,alerts&appid={2}", lat, lon, APIKey);
                 var json = web.DownloadString(url);
                 WeatherForecast.ForecastInfo ForecastInfo= JsonConvert.DeserializeObject<WeatherForecast.ForecastInfo>(json);
 
@@ -94,7 +94,7 @@ namespace SkyNews
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             getWeather();
-            //getForecast();
+            getForecast();
         }
 
         private void label2_Click(object sender, EventArgs e)
