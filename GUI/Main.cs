@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Net;
 using SkyNews.BLL;
+using System.Runtime.InteropServices;
 
 namespace SkyNews
 {
@@ -80,6 +81,8 @@ namespace SkyNews
         {
             InitializeComponent();
             labelDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy");
+
+
             
         }
 
@@ -107,6 +110,64 @@ namespace SkyNews
         private void tabPage1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // width of ellipse
+            int nHeightEllipse // height of ellipse
+        );
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+            this.BackColor = Color.Transparent;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            labelSearchForCity.Parent = pictureBoxBackground;
+            labelSearchForCity.BackColor = Color.Transparent;
+
+            labelCountry.Parent = pictureBoxBackground;
+            labelCountry.BackColor = Color.Transparent;
+
+            labelCondition.Parent = pictureBoxBackground;
+            labelCondition.BackColor = Color.Transparent;
+
+
+            labelDateTime.Parent = pictureBoxBackground;
+            labelDateTime.BackColor = Color.Transparent;
+
+            labelDetails.Parent = pictureBoxBackground;
+            labelDetails.BackColor = Color.Transparent;
+
+            labelTemp.Parent = pictureBoxBackground;
+            labelTemp.BackColor = Color.Transparent;
+
+            labelWind.Parent = pictureBoxBackground;
+            labelWind.BackColor = Color.Transparent;
+
+            labelPressure2.Parent = pictureBoxBackground;
+            labelPressure2.BackColor = Color.Transparent;
+
+            labelActivities.Parent = pictureBoxBackground;
+            labelActivities.BackColor = Color.Transparent;
+
+            labelWindspeed.Parent = pictureBoxBackground;
+            labelWindspeed.BackColor = Color.Transparent;
+
+            labelPressure.Parent = pictureBoxBackground;
+            labelPressure.BackColor = Color.Transparent;
+
+
+
         }
     }
 }

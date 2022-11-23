@@ -33,7 +33,7 @@ namespace SkyNews
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelActivities = new System.Windows.Forms.Label();
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,22 +41,25 @@ namespace SkyNews
             this.pictureIcon = new System.Windows.Forms.PictureBox();
             this.labelPressure = new System.Windows.Forms.Label();
             this.labelWindspeed = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.labelPressure2 = new System.Windows.Forms.Label();
+            this.labelWind = new System.Windows.Forms.Label();
             this.labelCountry = new System.Windows.Forms.Label();
             this.labelTemp = new System.Windows.Forms.Label();
             this.labelDetails = new System.Windows.Forms.Label();
             this.labelCondition = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.textBoxCity = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelSearchForCity = new System.Windows.Forms.Label();
             this.pictureBoxBackground = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.labelDateTime = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackground)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,28 +76,28 @@ namespace SkyNews
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.flowLayoutPanel);
-            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.labelActivities);
             this.tabPage1.Controls.Add(this.listViewActivities);
             this.tabPage1.Controls.Add(this.pictureIcon);
             this.tabPage1.Controls.Add(this.labelPressure);
             this.tabPage1.Controls.Add(this.labelWindspeed);
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.labelPressure2);
+            this.tabPage1.Controls.Add(this.labelWind);
             this.tabPage1.Controls.Add(this.labelCountry);
             this.tabPage1.Controls.Add(this.labelTemp);
             this.tabPage1.Controls.Add(this.labelDetails);
             this.tabPage1.Controls.Add(this.labelCondition);
             this.tabPage1.Controls.Add(this.buttonSearch);
             this.tabPage1.Controls.Add(this.textBoxCity);
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.labelSearchForCity);
             this.tabPage1.Controls.Add(this.pictureBoxBackground);
-            this.tabPage1.Font = new System.Drawing.Font("Vivaldi", 8.25F);
+            this.tabPage1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.ForeColor = System.Drawing.Color.Black;
-            this.tabPage1.Location = new System.Drawing.Point(4, 23);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(852, 509);
+            this.tabPage1.Size = new System.Drawing.Size(852, 510);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Current Location";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -104,22 +107,23 @@ namespace SkyNews
             // 
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(39, 369);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(39, 360);
             this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(777, 108);
             this.flowLayoutPanel.TabIndex = 18;
             // 
-            // label2
+            // labelActivities
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(664, 54);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 23);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Activities";
+            this.labelActivities.AutoSize = true;
+            this.labelActivities.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActivities.ForeColor = System.Drawing.Color.White;
+            this.labelActivities.Location = new System.Drawing.Point(664, 54);
+            this.labelActivities.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelActivities.Name = "labelActivities";
+            this.labelActivities.Size = new System.Drawing.Size(81, 23);
+            this.labelActivities.TabIndex = 17;
+            this.labelActivities.Text = "Activities";
             // 
             // listViewActivities
             // 
@@ -162,7 +166,8 @@ namespace SkyNews
             // 
             this.labelPressure.AutoSize = true;
             this.labelPressure.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPressure.Location = new System.Drawing.Point(364, 188);
+            this.labelPressure.ForeColor = System.Drawing.Color.White;
+            this.labelPressure.Location = new System.Drawing.Point(363, 207);
             this.labelPressure.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPressure.Name = "labelPressure";
             this.labelPressure.Size = new System.Drawing.Size(30, 17);
@@ -173,7 +178,8 @@ namespace SkyNews
             // 
             this.labelWindspeed.AutoSize = true;
             this.labelWindspeed.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWindspeed.Location = new System.Drawing.Point(364, 160);
+            this.labelWindspeed.ForeColor = System.Drawing.Color.White;
+            this.labelWindspeed.Location = new System.Drawing.Point(363, 179);
             this.labelWindspeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWindspeed.Name = "labelWindspeed";
             this.labelWindspeed.Size = new System.Drawing.Size(30, 17);
@@ -181,32 +187,35 @@ namespace SkyNews
             this.labelWindspeed.Text = "N/A";
             this.labelWindspeed.Click += new System.EventHandler(this.label9_Click);
             // 
-            // label10
+            // labelPressure2
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(283, 188);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(60, 17);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "Pressure:";
+            this.labelPressure2.AutoSize = true;
+            this.labelPressure2.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPressure2.ForeColor = System.Drawing.Color.White;
+            this.labelPressure2.Location = new System.Drawing.Point(282, 207);
+            this.labelPressure2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPressure2.Name = "labelPressure2";
+            this.labelPressure2.Size = new System.Drawing.Size(60, 17);
+            this.labelPressure2.TabIndex = 10;
+            this.labelPressure2.Text = "Pressure:";
             // 
-            // label11
+            // labelWind
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(283, 160);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 17);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Wind Speed:";
+            this.labelWind.AutoSize = true;
+            this.labelWind.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWind.ForeColor = System.Drawing.Color.White;
+            this.labelWind.Location = new System.Drawing.Point(282, 179);
+            this.labelWind.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWind.Name = "labelWind";
+            this.labelWind.Size = new System.Drawing.Size(78, 17);
+            this.labelWind.TabIndex = 9;
+            this.labelWind.Text = "Wind Speed:";
             // 
             // labelCountry
             // 
             this.labelCountry.AutoSize = true;
             this.labelCountry.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountry.ForeColor = System.Drawing.Color.White;
             this.labelCountry.Location = new System.Drawing.Point(125, 123);
             this.labelCountry.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCountry.Name = "labelCountry";
@@ -218,6 +227,7 @@ namespace SkyNews
             // 
             this.labelTemp.AutoSize = true;
             this.labelTemp.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTemp.ForeColor = System.Drawing.Color.White;
             this.labelTemp.Location = new System.Drawing.Point(48, 239);
             this.labelTemp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTemp.Name = "labelTemp";
@@ -229,6 +239,7 @@ namespace SkyNews
             // 
             this.labelDetails.AutoSize = true;
             this.labelDetails.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDetails.ForeColor = System.Drawing.Color.White;
             this.labelDetails.Location = new System.Drawing.Point(48, 209);
             this.labelDetails.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDetails.Name = "labelDetails";
@@ -240,6 +251,7 @@ namespace SkyNews
             // 
             this.labelCondition.AutoSize = true;
             this.labelCondition.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCondition.ForeColor = System.Drawing.Color.White;
             this.labelCondition.Location = new System.Drawing.Point(48, 179);
             this.labelCondition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCondition.Name = "labelCondition";
@@ -269,34 +281,38 @@ namespace SkyNews
             this.textBoxCity.Size = new System.Drawing.Size(347, 24);
             this.textBoxCity.TabIndex = 1;
             // 
-            // label1
+            // labelSearchForCity
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 48);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Search for City";
+            this.labelSearchForCity.AutoSize = true;
+            this.labelSearchForCity.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSearchForCity.ForeColor = System.Drawing.Color.White;
+            this.labelSearchForCity.Location = new System.Drawing.Point(46, 48);
+            this.labelSearchForCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSearchForCity.Name = "labelSearchForCity";
+            this.labelSearchForCity.Size = new System.Drawing.Size(122, 23);
+            this.labelSearchForCity.TabIndex = 0;
+            this.labelSearchForCity.Text = "Search for City";
+            this.labelSearchForCity.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBoxBackground
             // 
             this.pictureBoxBackground.BackgroundImage = global::SkyNews.Properties.Resources.backgroundForm_03;
             this.pictureBoxBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxBackground.Location = new System.Drawing.Point(2, 3);
+            this.pictureBoxBackground.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxBackground.Name = "pictureBoxBackground";
-            this.pictureBoxBackground.Size = new System.Drawing.Size(850, 506);
+            this.pictureBoxBackground.Size = new System.Drawing.Size(852, 509);
             this.pictureBoxBackground.TabIndex = 19;
             this.pictureBoxBackground.TabStop = false;
             // 
             // tabPage2
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Controls.Add(this.pictureBox1);
+            this.tabPage2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage2.Size = new System.Drawing.Size(852, 509);
+            this.tabPage2.Size = new System.Drawing.Size(852, 510);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Saved";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -312,10 +328,21 @@ namespace SkyNews
             this.labelDateTime.Text = "label1";
             this.labelDateTime.Click += new System.EventHandler(this.labelDateTime_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SkyNews.Properties.Resources.backgroundForm_03;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(852, 509);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(882, 558);
             this.Controls.Add(this.labelDateTime);
@@ -324,12 +351,17 @@ namespace SkyNews
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SkyView";
+            this.TransparencyKey = System.Drawing.Color.White;
+            this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackground)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -342,24 +374,25 @@ namespace SkyNews
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label labelDateTime;
         private System.Windows.Forms.TextBox textBoxCity;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelSearchForCity;
         private System.Windows.Forms.Label labelPressure;
         private System.Windows.Forms.Label labelWindspeed;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label labelPressure2;
+        private System.Windows.Forms.Label labelWind;
         private System.Windows.Forms.Label labelCountry;
         private System.Windows.Forms.Label labelTemp;
         private System.Windows.Forms.Label labelDetails;
         private System.Windows.Forms.Label labelCondition;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.PictureBox pictureIcon;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelActivities;
         private System.Windows.Forms.ListView listViewActivities;
         private System.Windows.Forms.ColumnHeader columnTitle;
         private System.Windows.Forms.ColumnHeader columnDescription;
         private System.Windows.Forms.ColumnHeader columnLink;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.PictureBox pictureBoxBackground;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
