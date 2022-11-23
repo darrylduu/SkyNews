@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="BLL\WeatherForecast.cs" />
     <Compile Include="BLL\WeatherInfo.cs" />
+    <Compile Include="DAL\WeatherDB.cs" />
     <Compile Include="ForecastUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -110,6 +112,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\backgroundForm-03.png" />
     <Content Include="WeatherAPI.txt" />
   </ItemGroup>
   <ItemGroup />

@@ -19,6 +19,7 @@ namespace SkyNews
         double lon;
         double lat;
 
+
         void getWeather()
         {
             using (WebClient web = new WebClient())
@@ -79,6 +80,7 @@ namespace SkyNews
         {
             InitializeComponent();
             labelDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy");
+            
         }
 
         private void labelDateTime_Click(object sender, EventArgs e)
@@ -100,6 +102,11 @@ namespace SkyNews
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
