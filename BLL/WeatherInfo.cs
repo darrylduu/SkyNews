@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SkyNews.DAL;
+using System.Data.SqlClient;
 
 namespace SkyNews.BLL
 {
@@ -24,10 +27,33 @@ namespace SkyNews.BLL
             public List<WeatherInfo.activities> GetActivities(int temperature, string location)
             {
                 List<activities> listA = new List<activities>();
-
+                activities a = new activities();
                 // switch statement goes here
                 if (temperature < 0)
                 {
+                    SqlConnection connDB = UtilityDB.ConnectDB();
+                    SqlCommand cmdGetId = new SqlCommand();
+                    cmdGetId.Connection = connDB;
+                    cmdGetId.CommandText = "SELECT activityId FROM Combinations where weatherId = 10";
+                    cmdGetId.ExecuteNonQuery();
+                    SqlDataReader reader = cmdGetId.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        SqlCommand cmdGetActivityInfo = new SqlCommand();
+                        cmdGetActivityInfo.Connection = connDB;
+                        cmdGetActivityInfo.CommandText = "SELECT * FROM Activities where activityId = @activityId";
+                        cmdGetActivityInfo.Parameters.AddWithValue("@activityId", reader["activityId"]);
+                        cmdGetActivityInfo.ExecuteNonQuery();
+
+                        while (reader.Read())
+                        {
+                            a.title = reader["title"].ToString();
+                            listA.Add(a);
+                        }
+                    }
+
+                    connDB.Close();
                     // get all Winter activites from the DB
                     // add to the listA
                 }

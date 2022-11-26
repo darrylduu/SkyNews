@@ -48,12 +48,12 @@ namespace SkyNews
             this.labelDetails = new System.Windows.Forms.Label();
             this.labelCondition = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.textBoxCity = new System.Windows.Forms.TextBox();
             this.labelSearchForCity = new System.Windows.Forms.Label();
             this.pictureBoxBackground = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.labelDateTime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelDateTime = new System.Windows.Forms.Label();
+            this.textBoxCity = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
@@ -75,6 +75,7 @@ namespace SkyNews
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBoxCity);
             this.tabPage1.Controls.Add(this.flowLayoutPanel);
             this.tabPage1.Controls.Add(this.labelActivities);
             this.tabPage1.Controls.Add(this.listViewActivities);
@@ -88,7 +89,6 @@ namespace SkyNews
             this.tabPage1.Controls.Add(this.labelDetails);
             this.tabPage1.Controls.Add(this.labelCondition);
             this.tabPage1.Controls.Add(this.buttonSearch);
-            this.tabPage1.Controls.Add(this.textBoxCity);
             this.tabPage1.Controls.Add(this.labelSearchForCity);
             this.tabPage1.Controls.Add(this.pictureBoxBackground);
             this.tabPage1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -272,15 +272,6 @@ namespace SkyNews
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // textBoxCity
-            // 
-            this.textBoxCity.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCity.Location = new System.Drawing.Point(47, 80);
-            this.textBoxCity.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(347, 24);
-            this.textBoxCity.TabIndex = 1;
-            // 
             // labelSearchForCity
             // 
             this.labelSearchForCity.AutoSize = true;
@@ -317,6 +308,16 @@ namespace SkyNews
             this.tabPage2.Text = "Saved";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::SkyNews.Properties.Resources.backgroundForm_03;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(852, 509);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
             // labelDateTime
             // 
             this.labelDateTime.AutoSize = true;
@@ -328,15 +329,12 @@ namespace SkyNews
             this.labelDateTime.Text = "label1";
             this.labelDateTime.Click += new System.EventHandler(this.labelDateTime_Click);
             // 
-            // pictureBox1
+            // textBoxCity
             // 
-            this.pictureBox1.BackgroundImage = global::SkyNews.Properties.Resources.backgroundForm_03;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(852, 509);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.textBoxCity.Location = new System.Drawing.Point(47, 80);
+            this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.Size = new System.Drawing.Size(346, 23);
+            this.textBoxCity.TabIndex = 20;
             // 
             // Main
             // 
@@ -373,7 +371,6 @@ namespace SkyNews
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label labelDateTime;
-        private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.Label labelSearchForCity;
         private System.Windows.Forms.Label labelPressure;
         private System.Windows.Forms.Label labelWindspeed;
@@ -393,6 +390,7 @@ namespace SkyNews
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.PictureBox pictureBoxBackground;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBoxCity;
     }
 }
 
