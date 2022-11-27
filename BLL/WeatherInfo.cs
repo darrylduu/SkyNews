@@ -14,6 +14,8 @@ namespace SkyNews.BLL
     {
         public class activities
         {
+
+            public int activityId { get; set; }
             public string title { get; set; }
             public string description { get; set; }
             public string link { get; set; }
@@ -24,43 +26,54 @@ namespace SkyNews.BLL
             // If > 0, certain activities will be shown for this type of weather
             // Etc...
 
-            public List<WeatherInfo.activities> GetActivities(int temperature, string location)
+            public List<WeatherInfo.activities> GetActivities(string temp)
             {
                 List<activities> listA = new List<activities>();
-                activities a = new activities();
-                // switch statement goes here
-                if (temperature < 0)
+                activities a;
+                int temperature = 0;
+
+                MessageBox.Show(temp);
+                //MessageBox.Show(temperature.ToString());
+
+                if (temperature <= 0)
+                {
+                    SqlConnection connDB = UtilityDB.ConnectDB();
+                    SqlCommand cmdGetId = new SqlCommand("SELECT activityId FROM Combinations WHERE temperatureId = 1", connDB);
+
+                    SqlDataReader reader = cmdGetId.ExecuteReader();
+                    
+
+                    while (reader.Read())
+                    {
+                        a = new activities();
+                        SqlCommand cmdGetTitle = new SqlCommand("SELECT title FROM Activities WHERE activityId = @activityId", connDB); // added
+                        a.activityId = Convert.ToInt32(reader["activityId"]);
+                        cmdGetTitle.Parameters.AddWithValue("@activityId", a.activityId); //added
+                        //cmdGetTitle.ExecuteNonQuery();
+                        //MessageBox.Show(reader["title"].ToString());
+                        a.title = reader["title"].ToString(); // added 
+                        listA.Add(a);
+                    }
+
+
+                    connDB.Close();
+                }
+                if (temperature > 0 && temperature <= 10)
                 {
                     SqlConnection connDB = UtilityDB.ConnectDB();
                     SqlCommand cmdGetId = new SqlCommand();
                     cmdGetId.Connection = connDB;
-                    cmdGetId.CommandText = "SELECT activityId FROM Combinations where weatherId = 10";
-                    cmdGetId.ExecuteNonQuery();
+                    cmdGetId.CommandText = "SELECT activityId FROM Combinations WHERE temperatureId = 1";
                     SqlDataReader reader = cmdGetId.ExecuteReader();
+                    a = new activities();
 
                     while (reader.Read())
                     {
-                        SqlCommand cmdGetActivityInfo = new SqlCommand();
-                        cmdGetActivityInfo.Connection = connDB;
-                        cmdGetActivityInfo.CommandText = "SELECT * FROM Activities where activityId = @activityId";
-                        cmdGetActivityInfo.Parameters.AddWithValue("@activityId", reader["activityId"]);
-                        cmdGetActivityInfo.ExecuteNonQuery();
-
-                        while (reader.Read())
-                        {
-                            a.title = reader["title"].ToString();
-                            listA.Add(a);
-                        }
+                        a.activityId = Convert.ToInt32(reader["activityId"]);
+                        listA.Add(a);
                     }
 
                     connDB.Close();
-                    // get all Winter activites from the DB
-                    // add to the listA
-                }
-                if (temperature > 0 && temperature <= 10)
-                {
-                    // get all AlmostWinter activites from the DB
-                    // add to the listA
                 }
                 if (temperature > 10 && temperature <= 16)
                 {

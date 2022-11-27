@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using SkyNews.BLL;
+using SkyNews.DAL;
 
 namespace SkyNews.GUI
 {
@@ -146,7 +147,24 @@ namespace SkyNews.GUI
         {
             getWeather();
             getForecast();
+
+            WeatherInfo.activities a = new WeatherInfo.activities();
+            List<WeatherInfo.activities> listA = a.GetActivities(labelTemp.Text);
+
+            // Fill Activities
+            foreach (WeatherInfo.activities item in listA)
+            {
+                ListViewItem lvItem = new ListViewItem(item.title.ToString());
+                listViewActivities.Items.Add(lvItem);
+            }
+            
+
             flowLayoutPanelDailyWeather.Visible = true;
+        }
+
+        private void buttonConnectDB_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(UtilityDB.ConnectDB().State.ToString());
         }
     }
 }

@@ -45,10 +45,12 @@
             this.textBoxCity = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.flowLayoutPanelDailyWeather = new System.Windows.Forms.FlowLayoutPanel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.labelDateTime = new System.Windows.Forms.Label();
             this.labelCountry = new System.Windows.Forms.Label();
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
+            this.listViewActivities = new System.Windows.Forms.ListView();
+            this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonConnectDB = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageCurrent.SuspendLayout();
             this.tabPageSaved.SuspendLayout();
@@ -69,9 +71,10 @@
             // 
             // tabPageCurrent
             // 
+            this.tabPageCurrent.Controls.Add(this.buttonConnectDB);
+            this.tabPageCurrent.Controls.Add(this.listViewActivities);
             this.tabPageCurrent.Controls.Add(this.pictureBoxIcon);
             this.tabPageCurrent.Controls.Add(this.labelCountry);
-            this.tabPageCurrent.Controls.Add(this.listBox1);
             this.tabPageCurrent.Controls.Add(this.flowLayoutPanelDailyWeather);
             this.tabPageCurrent.Controls.Add(this.buttonSearch);
             this.tabPageCurrent.Controls.Add(this.textBoxCity);
@@ -258,14 +261,6 @@
             this.flowLayoutPanelDailyWeather.Size = new System.Drawing.Size(708, 105);
             this.flowLayoutPanelDailyWeather.TabIndex = 29;
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(645, 96);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(127, 186);
-            this.listBox1.TabIndex = 30;
-            // 
             // labelDateTime
             // 
             this.labelDateTime.AutoSize = true;
@@ -295,6 +290,32 @@
             this.pictureBoxIcon.Size = new System.Drawing.Size(60, 60);
             this.pictureBoxIcon.TabIndex = 32;
             this.pictureBoxIcon.TabStop = false;
+            // 
+            // listViewActivities
+            // 
+            this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderTitle});
+            this.listViewActivities.HideSelection = false;
+            this.listViewActivities.Location = new System.Drawing.Point(650, 96);
+            this.listViewActivities.Name = "listViewActivities";
+            this.listViewActivities.Size = new System.Drawing.Size(122, 186);
+            this.listViewActivities.TabIndex = 33;
+            this.listViewActivities.UseCompatibleStateImageBehavior = false;
+            this.listViewActivities.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderTitle
+            // 
+            this.columnHeaderTitle.Text = "Title";
+            // 
+            // buttonConnectDB
+            // 
+            this.buttonConnectDB.Location = new System.Drawing.Point(427, 255);
+            this.buttonConnectDB.Name = "buttonConnectDB";
+            this.buttonConnectDB.Size = new System.Drawing.Size(146, 45);
+            this.buttonConnectDB.TabIndex = 34;
+            this.buttonConnectDB.Text = "Connect DB";
+            this.buttonConnectDB.UseVisualStyleBackColor = true;
+            this.buttonConnectDB.Click += new System.EventHandler(this.buttonConnectDB_Click);
             // 
             // WeatherForm
             // 
@@ -337,9 +358,11 @@
         private System.Windows.Forms.TextBox textBoxCity;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDailyWeather;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label labelDateTime;
         private System.Windows.Forms.PictureBox pictureBoxIcon;
         private System.Windows.Forms.Label labelCountry;
+        private System.Windows.Forms.ListView listViewActivities;
+        private System.Windows.Forms.ColumnHeader columnHeaderTitle;
+        private System.Windows.Forms.Button buttonConnectDB;
     }
 }
