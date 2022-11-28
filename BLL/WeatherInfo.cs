@@ -12,7 +12,11 @@ namespace SkyNews.BLL
 {
     class WeatherInfo
     {
-        public class Favorites
+        public class location
+        {
+            public int locationId { get; set; }
+            public string locationName { get; set; }
+        }
 
 
         public class user
@@ -20,7 +24,41 @@ namespace SkyNews.BLL
             public int id { get; set; }
             public string name { get; set; }
 
-            
+            public void DisplayFavorites(ListBox lb, List<location> listL)
+            {
+                lb.Items.Clear();
+
+                foreach (var item in listL)
+                {
+                    lb.Items.Add(item.locationName);
+                }                
+            }
+
+            public List<location> getAllLocations(int userId)
+            {
+                List<location> listL= new List<location>();
+                SqlConnection conn = new SqlConnection();
+                conn = UtilityDB.ConnectDB();
+                SqlCommand cmdFindEmployee = new SqlCommand("SELECT l.locationId, l.locationName " +
+                                                            "FROM Locations l " +
+                                                            "JOIN Favorites f ON f.locationId = l.locationId " +
+                                                            "WHERE f.userId = @userId",conn);
+                cmdFindEmployee.Parameters.AddWithValue("@userId", userId);
+                SqlDataReader reader = cmdFindEmployee.ExecuteReader();
+
+                location l;
+
+                while (reader.Read())
+                {
+                    l = new location();
+                    l.locationId = Convert.ToInt32(reader["locationId"]);
+                    l.locationName = reader["locationName"].ToString();
+                    MessageBox.Show("GetAllLocations:\nLocationId:" + l.locationId.ToString() + "\nLocationName: " + l.locationName);
+                    listL.Add(l);
+                }
+
+                return listL;
+            }
 
             public bool AlreadyExits(int userId, string location)
             {
@@ -34,7 +72,7 @@ namespace SkyNews.BLL
                     SqlCommand cmdFindEmployee = new SqlCommand("SELECT l.locationId, l.locationName " +
                                                                 "FROM Locations l " +
                                                                 "JOIN Favorites f ON f.locationId = l.locationId " +
-                                                                "WHERE l.locationName = @locationName" +
+                                                                "WHERE l.locationName = @locationName " +
                                                                 "AND f.userId = @userId", conn);
                     cmdFindEmployee.Parameters.AddWithValue("@locationName", location);
                     cmdFindEmployee.Parameters.AddWithValue("@userId", userId);
@@ -43,6 +81,7 @@ namespace SkyNews.BLL
                     if (reader.Read())
                     {
                         exists = reader["locationName"].Equals(location); // checks if location already saved
+                        MessageBox.Show(exists.ToString());
                     }
 
                 }
@@ -59,11 +98,24 @@ namespace SkyNews.BLL
                 return exists;
             }
 
-            public void SaveToFavorites(int userId, string location)
+            public void SaveToFavorites(int userId, string locationName)
             {
                 SqlConnection conn = UtilityDB.ConnectDB();
+
+                // get location ID
+                int locationId = 0;
+                SqlCommand cmdSelect = new SqlCommand("SELECT locationId FROM Locations WHERE locationName = @locationName", conn);
+                cmdSelect.Parameters.AddWithValue("@locationName", locationName);
+                SqlDataReader reader = cmdSelect.ExecuteReader();
+                while (reader.Read())
+                {
+                    locationId = Convert.ToInt32(reader["locationId"]);
+                }
+                reader.Close();
+
+                // User above location id to insert into Favorites table in DB
                 SqlCommand cmdInsert = new SqlCommand("INSERT INTO Favorites (locationId, userId) VALUES (@locationId, @userId)", conn);
-                cmdInsert.Parameters.AddWithValue("@locationId", location);
+                cmdInsert.Parameters.AddWithValue("@locationId", locationId);
                 cmdInsert.Parameters.AddWithValue("@userId", userId);
                 cmdInsert.ExecuteNonQuery();
 

@@ -86,7 +86,8 @@ namespace SkyNews.GUI
             labelPressure.Parent = pictureBoxBackground;
             labelPressure.BackColor = Color.Transparent;
 
-            
+            WeatherInfo.user u = new WeatherInfo.user();
+            u.DisplayFavorites(listBoxFavorites, u.getAllLocations(1));
 
 
         }
@@ -177,6 +178,8 @@ namespace SkyNews.GUI
         private void button1_Click(object sender, EventArgs e)
         {
             WeatherInfo.user u = new WeatherInfo.user();
+            WeatherInfo.location l = new WeatherInfo.location();
+
             if (u.AlreadyExits(1, textBoxCity.Text))
             {
                 MessageBox.Show("This location is already in your favorites! Go take a look :)");
@@ -184,8 +187,26 @@ namespace SkyNews.GUI
             else
             {
                 u.SaveToFavorites(1, textBoxCity.Text);
+
+                // display in listbox
+                u.DisplayFavorites(listBoxFavorites, u.getAllLocations(1));
             }
             
+        }
+
+        private void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxFavorites_DoubleClick(object sender, EventArgs e)
+        {
+            if (listBoxFavorites.SelectedItem != null)
+            {
+                tabControl1.SelectedIndex = 0;
+                textBoxCity.Text = listBoxFavorites.SelectedItem.ToString();
+                buttonSearch_Click(sender, e);
+            }
         }
     }
 }

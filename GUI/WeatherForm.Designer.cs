@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageCurrent = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.listViewActivities = new System.Windows.Forms.ListView();
             this.columnHeaderTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
@@ -48,10 +49,10 @@
             this.labelSearchForCity = new System.Windows.Forms.Label();
             this.pictureBoxBackground = new System.Windows.Forms.PictureBox();
             this.tabPageSaved = new System.Windows.Forms.TabPage();
+            this.listBoxFavorites = new System.Windows.Forms.ListBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelDateTime = new System.Windows.Forms.Label();
-            this.listBoxFavorites = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelFavorites = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageCurrent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -65,7 +66,7 @@
             this.tabControl1.Controls.Add(this.tabPageCurrent);
             this.tabControl1.Controls.Add(this.tabPageSaved);
             this.tabControl1.Location = new System.Drawing.Point(16, 18);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1144, 778);
@@ -91,13 +92,25 @@
             this.tabPageCurrent.Controls.Add(this.labelSearchForCity);
             this.tabPageCurrent.Controls.Add(this.pictureBoxBackground);
             this.tabPageCurrent.Location = new System.Drawing.Point(4, 28);
-            this.tabPageCurrent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageCurrent.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCurrent.Name = "tabPageCurrent";
-            this.tabPageCurrent.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageCurrent.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageCurrent.Size = new System.Drawing.Size(1136, 746);
             this.tabPageCurrent.TabIndex = 0;
             this.tabPageCurrent.Text = "Current";
             this.tabPageCurrent.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(555, 154);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 52);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Save To Favorites";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listViewActivities
             // 
@@ -106,7 +119,7 @@
             this.listViewActivities.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewActivities.HideSelection = false;
             this.listViewActivities.Location = new System.Drawing.Point(784, 123);
-            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listViewActivities.Margin = new System.Windows.Forms.Padding(4);
             this.listViewActivities.Name = "listViewActivities";
             this.listViewActivities.Size = new System.Drawing.Size(242, 347);
             this.listViewActivities.TabIndex = 33;
@@ -121,7 +134,7 @@
             // pictureBoxIcon
             // 
             this.pictureBoxIcon.Location = new System.Drawing.Point(85, 175);
-            this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxIcon.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxIcon.Name = "pictureBoxIcon";
             this.pictureBoxIcon.Size = new System.Drawing.Size(80, 88);
             this.pictureBoxIcon.TabIndex = 32;
@@ -141,7 +154,7 @@
             // flowLayoutPanelDailyWeather
             // 
             this.flowLayoutPanelDailyWeather.Location = new System.Drawing.Point(85, 491);
-            this.flowLayoutPanelDailyWeather.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanelDailyWeather.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelDailyWeather.Name = "flowLayoutPanelDailyWeather";
             this.flowLayoutPanelDailyWeather.Size = new System.Drawing.Size(944, 153);
             this.flowLayoutPanelDailyWeather.TabIndex = 29;
@@ -161,7 +174,7 @@
             // textBoxCity
             // 
             this.textBoxCity.Location = new System.Drawing.Point(83, 123);
-            this.textBoxCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(464, 25);
             this.textBoxCity.TabIndex = 27;
@@ -269,7 +282,7 @@
             // 
             this.pictureBoxBackground.Image = global::SkyNews.Properties.Resources.backgroundForm_03;
             this.pictureBoxBackground.Location = new System.Drawing.Point(4, 5);
-            this.pictureBoxBackground.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxBackground.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxBackground.Name = "pictureBoxBackground";
             this.pictureBoxBackground.Size = new System.Drawing.Size(1128, 744);
             this.pictureBoxBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,22 +291,34 @@
             // 
             // tabPageSaved
             // 
+            this.tabPageSaved.Controls.Add(this.labelFavorites);
             this.tabPageSaved.Controls.Add(this.listBoxFavorites);
             this.tabPageSaved.Controls.Add(this.pictureBox2);
             this.tabPageSaved.Location = new System.Drawing.Point(4, 28);
-            this.tabPageSaved.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSaved.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageSaved.Name = "tabPageSaved";
-            this.tabPageSaved.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageSaved.Padding = new System.Windows.Forms.Padding(4);
             this.tabPageSaved.Size = new System.Drawing.Size(1136, 746);
             this.tabPageSaved.TabIndex = 1;
             this.tabPageSaved.Text = "Saved";
             this.tabPageSaved.UseVisualStyleBackColor = true;
             // 
+            // listBoxFavorites
+            // 
+            this.listBoxFavorites.FormattingEnabled = true;
+            this.listBoxFavorites.ItemHeight = 19;
+            this.listBoxFavorites.Location = new System.Drawing.Point(88, 139);
+            this.listBoxFavorites.Name = "listBoxFavorites";
+            this.listBoxFavorites.Size = new System.Drawing.Size(948, 479);
+            this.listBoxFavorites.TabIndex = 2;
+            this.listBoxFavorites.SelectedIndexChanged += new System.EventHandler(this.listBoxFavorites_SelectedIndexChanged);
+            this.listBoxFavorites.DoubleClick += new System.EventHandler(this.listBoxFavorites_DoubleClick);
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SkyNews.Properties.Resources.backgroundForm_03;
             this.pictureBox2.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1128, 742);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -309,26 +334,16 @@
             this.labelDateTime.TabIndex = 2;
             this.labelDateTime.Text = "Date";
             // 
-            // listBoxFavorites
+            // labelFavorites
             // 
-            this.listBoxFavorites.FormattingEnabled = true;
-            this.listBoxFavorites.ItemHeight = 19;
-            this.listBoxFavorites.Location = new System.Drawing.Point(90, 179);
-            this.listBoxFavorites.Name = "listBoxFavorites";
-            this.listBoxFavorites.Size = new System.Drawing.Size(948, 479);
-            this.listBoxFavorites.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(555, 154);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 52);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Save To Favorites";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelFavorites.AutoSize = true;
+            this.labelFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFavorites.ForeColor = System.Drawing.Color.White;
+            this.labelFavorites.Location = new System.Drawing.Point(82, 92);
+            this.labelFavorites.Name = "labelFavorites";
+            this.labelFavorites.Size = new System.Drawing.Size(128, 31);
+            this.labelFavorites.TabIndex = 19;
+            this.labelFavorites.Text = "Favorited";
             // 
             // WeatherForm
             // 
@@ -338,7 +353,7 @@
             this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WeatherForm";
             this.Text = "SkyView";
             this.Load += new System.EventHandler(this.WeatherForm_Load);
@@ -348,6 +363,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackground)).EndInit();
             this.tabPageSaved.ResumeLayout(false);
+            this.tabPageSaved.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -380,5 +396,6 @@
         private System.Windows.Forms.ColumnHeader columnHeaderTitle;
         private System.Windows.Forms.ListBox listBoxFavorites;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelFavorites;
     }
 }
