@@ -51,6 +51,9 @@ namespace SkyNews.GUI
 
             flowLayoutPanelDailyWeather.Visible = false;
 
+            labelFavorites.Parent = pictureBox2;
+            labelFavorites.BackColor = Color.Transparent;
+
             labelSearchForCity.Parent = pictureBoxBackground;
             labelSearchForCity.BackColor = Color.Transparent;
 

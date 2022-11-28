@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WeatherForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageCurrent = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
@@ -114,6 +115,7 @@
             // 
             // listViewActivities
             // 
+            this.listViewActivities.BackColor = System.Drawing.Color.SlateBlue;
             this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderTitle});
             this.listViewActivities.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,7 +155,8 @@
             // 
             // flowLayoutPanelDailyWeather
             // 
-            this.flowLayoutPanelDailyWeather.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanelDailyWeather.AutoScroll = true;
+            this.flowLayoutPanelDailyWeather.BackColor = System.Drawing.Color.SlateBlue;
             this.flowLayoutPanelDailyWeather.Location = new System.Drawing.Point(85, 491);
             this.flowLayoutPanelDailyWeather.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelDailyWeather.Name = "flowLayoutPanelDailyWeather";
@@ -317,6 +320,8 @@
             // 
             // listBoxFavorites
             // 
+            this.listBoxFavorites.BackColor = System.Drawing.Color.SlateBlue;
+            this.listBoxFavorites.ForeColor = System.Drawing.Color.White;
             this.listBoxFavorites.FormattingEnabled = true;
             this.listBoxFavorites.ItemHeight = 19;
             this.listBoxFavorites.Location = new System.Drawing.Point(88, 139);
@@ -354,6 +359,7 @@
             this.Controls.Add(this.labelDateTime);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WeatherForm";
             this.Text = "SkyView";
