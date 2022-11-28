@@ -47,10 +47,9 @@ namespace SkyNews.GUI
 
         private void WeatherForm_Load(object sender, EventArgs e)
         {
-            
+            textBoxCity.Focus();
 
             flowLayoutPanelDailyWeather.Visible = false;
-
 
             labelSearchForCity.Parent = pictureBoxBackground;
             labelSearchForCity.BackColor = Color.Transparent;
@@ -60,7 +59,6 @@ namespace SkyNews.GUI
 
             labelCondition.Parent = pictureBoxBackground;
             labelCondition.BackColor = Color.Transparent;
-
 
             labelDateTime.Parent = pictureBoxBackground;
             labelDateTime.BackColor = Color.Transparent;
@@ -180,18 +178,31 @@ namespace SkyNews.GUI
             WeatherInfo.user u = new WeatherInfo.user();
             WeatherInfo.location l = new WeatherInfo.location();
 
-            if (u.AlreadyExits(1, textBoxCity.Text))
+            if (textBoxCity.Text != "")
             {
-                MessageBox.Show("This location is already in your favorites! Go take a look :)");
+                string city = validateCity(textBoxCity.Text);
+
+                if (u.AlreadyExits(1, city))
+                {
+                    MessageBox.Show("This location is already in your favorites! Go take a look :)");
+                }
+                else
+                {
+                    u.SaveToFavorites(1, city);
+                    u.DisplayFavorites(listBoxFavorites, u.getAllLocations(1));
+                }
             }
             else
             {
-                u.SaveToFavorites(1, textBoxCity.Text);
-
-                // display in listbox
-                u.DisplayFavorites(listBoxFavorites, u.getAllLocations(1));
+                MessageBox.Show("Please enter a city or country to save to favorites.");
+                textBoxCity.Focus();
             }
-            
+        }
+
+        private string validateCity(string strCity)
+        {
+            string textboxCityValidation = char.ToUpper(strCity[0]) + strCity.Substring(1);
+            return textboxCityValidation;
         }
 
         private void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)

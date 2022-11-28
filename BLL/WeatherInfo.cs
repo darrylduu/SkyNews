@@ -53,7 +53,6 @@ namespace SkyNews.BLL
                     l = new location();
                     l.locationId = Convert.ToInt32(reader["locationId"]);
                     l.locationName = reader["locationName"].ToString();
-                    MessageBox.Show("GetAllLocations:\nLocationId:" + l.locationId.ToString() + "\nLocationName: " + l.locationName);
                     listL.Add(l);
                 }
 
