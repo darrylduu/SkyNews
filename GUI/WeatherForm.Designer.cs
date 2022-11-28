@@ -54,6 +54,7 @@
             this.listBoxFavorites = new System.Windows.Forms.ListBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelDateTime = new System.Windows.Forms.Label();
+            this.buttonRemoveFromFavorites = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageCurrent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -295,6 +296,7 @@
             // 
             // tabPageSaved
             // 
+            this.tabPageSaved.Controls.Add(this.buttonRemoveFromFavorites);
             this.tabPageSaved.Controls.Add(this.labelFavorites);
             this.tabPageSaved.Controls.Add(this.listBoxFavorites);
             this.tabPageSaved.Controls.Add(this.pictureBox2);
@@ -321,12 +323,13 @@
             // listBoxFavorites
             // 
             this.listBoxFavorites.BackColor = System.Drawing.Color.SlateBlue;
+            this.listBoxFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxFavorites.ForeColor = System.Drawing.Color.White;
             this.listBoxFavorites.FormattingEnabled = true;
-            this.listBoxFavorites.ItemHeight = 19;
+            this.listBoxFavorites.ItemHeight = 35;
             this.listBoxFavorites.Location = new System.Drawing.Point(88, 139);
             this.listBoxFavorites.Name = "listBoxFavorites";
-            this.listBoxFavorites.Size = new System.Drawing.Size(948, 460);
+            this.listBoxFavorites.Size = new System.Drawing.Size(948, 459);
             this.listBoxFavorites.TabIndex = 2;
             this.listBoxFavorites.SelectedIndexChanged += new System.EventHandler(this.listBoxFavorites_SelectedIndexChanged);
             this.listBoxFavorites.DoubleClick += new System.EventHandler(this.listBoxFavorites_DoubleClick);
@@ -350,6 +353,18 @@
             this.labelDateTime.Size = new System.Drawing.Size(40, 19);
             this.labelDateTime.TabIndex = 2;
             this.labelDateTime.Text = "Date";
+            // 
+            // buttonRemoveFromFavorites
+            // 
+            this.buttonRemoveFromFavorites.BackColor = System.Drawing.Color.White;
+            this.buttonRemoveFromFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemoveFromFavorites.Location = new System.Drawing.Point(833, 92);
+            this.buttonRemoveFromFavorites.Name = "buttonRemoveFromFavorites";
+            this.buttonRemoveFromFavorites.Size = new System.Drawing.Size(203, 31);
+            this.buttonRemoveFromFavorites.TabIndex = 35;
+            this.buttonRemoveFromFavorites.Text = "Remove From Favorites";
+            this.buttonRemoveFromFavorites.UseVisualStyleBackColor = false;
+            this.buttonRemoveFromFavorites.Click += new System.EventHandler(this.buttonRemoveFromFavorites_Click);
             // 
             // WeatherForm
             // 
@@ -404,5 +419,6 @@
         private System.Windows.Forms.ListBox listBoxFavorites;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelFavorites;
+        private System.Windows.Forms.Button buttonRemoveFromFavorites;
     }
 }

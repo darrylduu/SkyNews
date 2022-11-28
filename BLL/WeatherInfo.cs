@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SkyNews.DAL;
 using System.Data.SqlClient;
+using static SkyNews.BLL.WeatherInfo;
 
 namespace SkyNews.BLL
 {
@@ -16,6 +17,63 @@ namespace SkyNews.BLL
         {
             public int locationId { get; set; }
             public string locationName { get; set; }
+
+            public bool locationExists(string location)
+            {
+
+                bool exists = false;
+
+                SqlConnection conn = new SqlConnection();
+
+                try
+                {
+                    conn = UtilityDB.ConnectDB();
+                    SqlCommand cmdFindEmployee = new SqlCommand("SELECT * FROM Locations WHERE locationName = @locationName", conn);
+                    cmdFindEmployee.Parameters.AddWithValue("@locationName", location);
+                    SqlDataReader reader = cmdFindEmployee.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        exists = reader["locationName"].Equals(location); // checks if location already saved
+                    }
+
+                }
+                catch (Exception x)
+                {
+                    throw x;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+                return exists;
+            }
+
+            public void saveLocation(string location)
+            {
+                SqlConnection conn = UtilityDB.ConnectDB();
+
+                try
+                {
+                    SqlCommand cmdInsert = new SqlCommand("INSERT INTO Locations (locationName) VALUES(@locationName)", conn);
+                    cmdInsert.Parameters.AddWithValue("@locationName", location);
+                    cmdInsert.ExecuteNonQuery();
+
+                    //MessageBox.Show("");
+
+                }
+                catch (Exception x)
+                {
+                    throw x;
+                }
+                finally
+                {
+                    conn.Close();
+                    conn.Dispose();
+                }
+            }
+
         }
 
 
@@ -23,6 +81,39 @@ namespace SkyNews.BLL
         {
             public int id { get; set; }
             public string name { get; set; }
+
+            public void RemoveFromFavorites(string location)
+            {
+                SqlConnection conn = UtilityDB.ConnectDB();
+
+                try
+                {
+                    int locationId = 0;
+                    SqlCommand cmdSelect = new SqlCommand("SELECT locationId FROM Locations WHERE locationName = @locationName", conn);
+                    cmdSelect.Parameters.AddWithValue("@locationName", location);
+                    SqlDataReader reader = cmdSelect.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        locationId = Convert.ToInt32(reader["locationId"]);
+                    }
+                    reader.Close();
+
+                    SqlCommand cmdDelete = new SqlCommand("DELETE FROM Favorites WHERE locationId = @locationId", conn);
+                    cmdDelete.Parameters.AddWithValue("@locationId", locationId);
+                    cmdDelete.ExecuteNonQuery();
+
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("We were unable to delete the location.", "Error");
+                    throw x;
+                }
+                finally
+                {
+                    conn.Close();
+                    conn.Dispose();
+                }
+            }
 
             public void DisplayFavorites(ListBox lb, List<location> listL)
             {

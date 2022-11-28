@@ -20,8 +20,8 @@ namespace SkyNews.GUI
         string APIKey = "10272f136f947a75efb69dcc09e674ac";
         double lon;
         double lat;
-        
-        
+
+        int userId = 1;
 
         public WeatherForm()
         {
@@ -49,6 +49,7 @@ namespace SkyNews.GUI
         {
             textBoxCity.Focus();
 
+            buttonRemoveFromFavorites.Visible = false;
             flowLayoutPanelDailyWeather.Visible = false;
 
             labelFavorites.Parent = pictureBox2;
@@ -176,23 +177,37 @@ namespace SkyNews.GUI
             MessageBox.Show(UtilityDB.ConnectDB().State.ToString());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addToFavorites(string city)
         {
             WeatherInfo.user u = new WeatherInfo.user();
+            if (u.AlreadyExits(1, city))
+            {
+                MessageBox.Show("This location is already in your favorites! Go take a look :)");
+            }
+            else
+            {
+                u.SaveToFavorites(1, city);
+                u.DisplayFavorites(listBoxFavorites, u.getAllLocations(userId));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
             WeatherInfo.location l = new WeatherInfo.location();
 
             if (textBoxCity.Text != "")
             {
                 string city = validateCity(textBoxCity.Text);
 
-                if (u.AlreadyExits(1, city))
+                if (l.locationExists(city))
                 {
-                    MessageBox.Show("This location is already in your favorites! Go take a look :)");
+                    addToFavorites(city);
                 }
                 else
                 {
-                    u.SaveToFavorites(1, city);
-                    u.DisplayFavorites(listBoxFavorites, u.getAllLocations(1));
+                    l.saveLocation(city);
+                    addToFavorites(city);
                 }
             }
             else
@@ -210,7 +225,10 @@ namespace SkyNews.GUI
 
         private void listBoxFavorites_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (listBoxFavorites.SelectedItem != null)
+            {
+                buttonRemoveFromFavorites.Visible = true;
+            }
         }
 
         private void listBoxFavorites_DoubleClick(object sender, EventArgs e)
@@ -221,6 +239,15 @@ namespace SkyNews.GUI
                 textBoxCity.Text = listBoxFavorites.SelectedItem.ToString();
                 buttonSearch_Click(sender, e);
             }
+        }
+
+        private void buttonRemoveFromFavorites_Click(object sender, EventArgs e)
+        {
+            WeatherInfo.user u = new WeatherInfo.user();
+
+            u.RemoveFromFavorites(listBoxFavorites.SelectedItem.ToString());
+            u.DisplayFavorites(listBoxFavorites, u.getAllLocations(userId));
+
         }
     }
 }
