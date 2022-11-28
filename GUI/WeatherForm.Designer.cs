@@ -117,6 +117,7 @@
             // listViewActivities
             // 
             this.listViewActivities.BackColor = System.Drawing.Color.SlateBlue;
+            this.listViewActivities.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listViewActivities.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderTitle});
             this.listViewActivities.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,7 +315,7 @@
             this.labelFavorites.AutoSize = true;
             this.labelFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFavorites.ForeColor = System.Drawing.Color.White;
-            this.labelFavorites.Location = new System.Drawing.Point(82, 92);
+            this.labelFavorites.Location = new System.Drawing.Point(79, 92);
             this.labelFavorites.Name = "labelFavorites";
             this.labelFavorites.Size = new System.Drawing.Size(128, 31);
             this.labelFavorites.TabIndex = 19;
@@ -323,13 +324,14 @@
             // listBoxFavorites
             // 
             this.listBoxFavorites.BackColor = System.Drawing.Color.SlateBlue;
+            this.listBoxFavorites.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBoxFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxFavorites.ForeColor = System.Drawing.Color.White;
             this.listBoxFavorites.FormattingEnabled = true;
             this.listBoxFavorites.ItemHeight = 35;
             this.listBoxFavorites.Location = new System.Drawing.Point(88, 139);
             this.listBoxFavorites.Name = "listBoxFavorites";
-            this.listBoxFavorites.Size = new System.Drawing.Size(948, 459);
+            this.listBoxFavorites.Size = new System.Drawing.Size(948, 455);
             this.listBoxFavorites.TabIndex = 2;
             this.listBoxFavorites.SelectedIndexChanged += new System.EventHandler(this.listBoxFavorites_SelectedIndexChanged);
             this.listBoxFavorites.DoubleClick += new System.EventHandler(this.listBoxFavorites_DoubleClick);
