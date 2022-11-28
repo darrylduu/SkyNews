@@ -17,7 +17,7 @@ namespace SkyNews
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new WeatherForm());
+            Application.Run(new Load());
         }
     }
 }

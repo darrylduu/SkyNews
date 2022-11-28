@@ -49,10 +49,10 @@
             this.labelSearchForCity = new System.Windows.Forms.Label();
             this.pictureBoxBackground = new System.Windows.Forms.PictureBox();
             this.tabPageSaved = new System.Windows.Forms.TabPage();
+            this.labelFavorites = new System.Windows.Forms.Label();
             this.listBoxFavorites = new System.Windows.Forms.ListBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelDateTime = new System.Windows.Forms.Label();
-            this.labelFavorites = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageCurrent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -91,11 +91,11 @@
             this.tabPageCurrent.Controls.Add(this.labelCondition);
             this.tabPageCurrent.Controls.Add(this.labelSearchForCity);
             this.tabPageCurrent.Controls.Add(this.pictureBoxBackground);
-            this.tabPageCurrent.Location = new System.Drawing.Point(4, 28);
+            this.tabPageCurrent.Location = new System.Drawing.Point(4, 36);
             this.tabPageCurrent.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageCurrent.Name = "tabPageCurrent";
             this.tabPageCurrent.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageCurrent.Size = new System.Drawing.Size(1136, 746);
+            this.tabPageCurrent.Size = new System.Drawing.Size(1136, 738);
             this.tabPageCurrent.TabIndex = 0;
             this.tabPageCurrent.Text = "Current";
             this.tabPageCurrent.UseVisualStyleBackColor = true;
@@ -147,12 +147,13 @@
             this.labelCountry.ForeColor = System.Drawing.Color.White;
             this.labelCountry.Location = new System.Drawing.Point(199, 202);
             this.labelCountry.Name = "labelCountry";
-            this.labelCountry.Size = new System.Drawing.Size(92, 29);
+            this.labelCountry.Size = new System.Drawing.Size(137, 44);
             this.labelCountry.TabIndex = 31;
             this.labelCountry.Text = "Country";
             // 
             // flowLayoutPanelDailyWeather
             // 
+            this.flowLayoutPanelDailyWeather.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelDailyWeather.Location = new System.Drawing.Point(85, 491);
             this.flowLayoutPanelDailyWeather.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelDailyWeather.Name = "flowLayoutPanelDailyWeather";
@@ -176,7 +177,7 @@
             this.textBoxCity.Location = new System.Drawing.Point(83, 123);
             this.textBoxCity.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(464, 25);
+            this.textBoxCity.Size = new System.Drawing.Size(464, 33);
             this.textBoxCity.TabIndex = 27;
             // 
             // labelActivities
@@ -186,7 +187,7 @@
             this.labelActivities.ForeColor = System.Drawing.Color.White;
             this.labelActivities.Location = new System.Drawing.Point(780, 85);
             this.labelActivities.Name = "labelActivities";
-            this.labelActivities.Size = new System.Drawing.Size(125, 31);
+            this.labelActivities.Size = new System.Drawing.Size(189, 47);
             this.labelActivities.TabIndex = 26;
             this.labelActivities.Text = "Activities";
             // 
@@ -197,7 +198,7 @@
             this.labelPressure.ForeColor = System.Drawing.Color.White;
             this.labelPressure.Location = new System.Drawing.Point(500, 332);
             this.labelPressure.Name = "labelPressure";
-            this.labelPressure.Size = new System.Drawing.Size(33, 19);
+            this.labelPressure.Size = new System.Drawing.Size(51, 29);
             this.labelPressure.TabIndex = 25;
             this.labelPressure.Text = "N/A";
             // 
@@ -208,7 +209,7 @@
             this.labelWindspeed.ForeColor = System.Drawing.Color.White;
             this.labelWindspeed.Location = new System.Drawing.Point(500, 291);
             this.labelWindspeed.Name = "labelWindspeed";
-            this.labelWindspeed.Size = new System.Drawing.Size(33, 19);
+            this.labelWindspeed.Size = new System.Drawing.Size(51, 29);
             this.labelWindspeed.TabIndex = 24;
             this.labelWindspeed.Text = "N/A";
             // 
@@ -219,7 +220,7 @@
             this.labelPressure2.ForeColor = System.Drawing.Color.White;
             this.labelPressure2.Location = new System.Drawing.Point(392, 332);
             this.labelPressure2.Name = "labelPressure2";
-            this.labelPressure2.Size = new System.Drawing.Size(69, 19);
+            this.labelPressure2.Size = new System.Drawing.Size(102, 29);
             this.labelPressure2.TabIndex = 23;
             this.labelPressure2.Text = "Pressure:";
             // 
@@ -230,7 +231,7 @@
             this.labelWind.ForeColor = System.Drawing.Color.White;
             this.labelWind.Location = new System.Drawing.Point(392, 291);
             this.labelWind.Name = "labelWind";
-            this.labelWind.Size = new System.Drawing.Size(90, 19);
+            this.labelWind.Size = new System.Drawing.Size(138, 29);
             this.labelWind.TabIndex = 22;
             this.labelWind.Text = "Wind Speed:";
             // 
@@ -241,7 +242,7 @@
             this.labelTemp.ForeColor = System.Drawing.Color.White;
             this.labelTemp.Location = new System.Drawing.Point(80, 378);
             this.labelTemp.Name = "labelTemp";
-            this.labelTemp.Size = new System.Drawing.Size(91, 19);
+            this.labelTemp.Size = new System.Drawing.Size(140, 29);
             this.labelTemp.TabIndex = 21;
             this.labelTemp.Text = "Temperature";
             // 
@@ -252,7 +253,7 @@
             this.labelDetails.ForeColor = System.Drawing.Color.White;
             this.labelDetails.Location = new System.Drawing.Point(80, 334);
             this.labelDetails.Name = "labelDetails";
-            this.labelDetails.Size = new System.Drawing.Size(55, 19);
+            this.labelDetails.Size = new System.Drawing.Size(81, 29);
             this.labelDetails.TabIndex = 20;
             this.labelDetails.Text = "Details";
             // 
@@ -263,7 +264,7 @@
             this.labelCondition.ForeColor = System.Drawing.Color.White;
             this.labelCondition.Location = new System.Drawing.Point(80, 291);
             this.labelCondition.Name = "labelCondition";
-            this.labelCondition.Size = new System.Drawing.Size(71, 19);
+            this.labelCondition.Size = new System.Drawing.Size(110, 29);
             this.labelCondition.TabIndex = 19;
             this.labelCondition.Text = "Condition";
             // 
@@ -274,7 +275,7 @@
             this.labelSearchForCity.ForeColor = System.Drawing.Color.White;
             this.labelSearchForCity.Location = new System.Drawing.Point(79, 85);
             this.labelSearchForCity.Name = "labelSearchForCity";
-            this.labelSearchForCity.Size = new System.Drawing.Size(191, 31);
+            this.labelSearchForCity.Size = new System.Drawing.Size(288, 47);
             this.labelSearchForCity.TabIndex = 18;
             this.labelSearchForCity.Text = "Search for City";
             // 
@@ -294,22 +295,33 @@
             this.tabPageSaved.Controls.Add(this.labelFavorites);
             this.tabPageSaved.Controls.Add(this.listBoxFavorites);
             this.tabPageSaved.Controls.Add(this.pictureBox2);
-            this.tabPageSaved.Location = new System.Drawing.Point(4, 28);
+            this.tabPageSaved.Location = new System.Drawing.Point(4, 36);
             this.tabPageSaved.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageSaved.Name = "tabPageSaved";
             this.tabPageSaved.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPageSaved.Size = new System.Drawing.Size(1136, 746);
+            this.tabPageSaved.Size = new System.Drawing.Size(1136, 738);
             this.tabPageSaved.TabIndex = 1;
             this.tabPageSaved.Text = "Saved";
             this.tabPageSaved.UseVisualStyleBackColor = true;
             // 
+            // labelFavorites
+            // 
+            this.labelFavorites.AutoSize = true;
+            this.labelFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFavorites.ForeColor = System.Drawing.Color.White;
+            this.labelFavorites.Location = new System.Drawing.Point(82, 92);
+            this.labelFavorites.Name = "labelFavorites";
+            this.labelFavorites.Size = new System.Drawing.Size(192, 47);
+            this.labelFavorites.TabIndex = 19;
+            this.labelFavorites.Text = "Favorited";
+            // 
             // listBoxFavorites
             // 
             this.listBoxFavorites.FormattingEnabled = true;
-            this.listBoxFavorites.ItemHeight = 19;
+            this.listBoxFavorites.ItemHeight = 27;
             this.listBoxFavorites.Location = new System.Drawing.Point(88, 139);
             this.listBoxFavorites.Name = "listBoxFavorites";
-            this.listBoxFavorites.Size = new System.Drawing.Size(948, 479);
+            this.listBoxFavorites.Size = new System.Drawing.Size(948, 463);
             this.listBoxFavorites.TabIndex = 2;
             this.listBoxFavorites.SelectedIndexChanged += new System.EventHandler(this.listBoxFavorites_SelectedIndexChanged);
             this.listBoxFavorites.DoubleClick += new System.EventHandler(this.listBoxFavorites_DoubleClick);
@@ -330,24 +342,13 @@
             this.labelDateTime.AutoSize = true;
             this.labelDateTime.Location = new System.Drawing.Point(801, 22);
             this.labelDateTime.Name = "labelDateTime";
-            this.labelDateTime.Size = new System.Drawing.Size(40, 19);
+            this.labelDateTime.Size = new System.Drawing.Size(60, 27);
             this.labelDateTime.TabIndex = 2;
             this.labelDateTime.Text = "Date";
             // 
-            // labelFavorites
-            // 
-            this.labelFavorites.AutoSize = true;
-            this.labelFavorites.Font = new System.Drawing.Font("Microsoft YaHei", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFavorites.ForeColor = System.Drawing.Color.White;
-            this.labelFavorites.Location = new System.Drawing.Point(82, 92);
-            this.labelFavorites.Name = "labelFavorites";
-            this.labelFavorites.Size = new System.Drawing.Size(128, 31);
-            this.labelFavorites.TabIndex = 19;
-            this.labelFavorites.Text = "Favorited";
-            // 
             // WeatherForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1176, 809);
             this.Controls.Add(this.labelDateTime);
