@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using SkyNews.BLL;
 using SkyNews.DAL;
+using System.Text.RegularExpressions;
 
 namespace SkyNews.GUI
 {
@@ -19,11 +20,14 @@ namespace SkyNews.GUI
         string APIKey = "10272f136f947a75efb69dcc09e674ac";
         double lon;
         double lat;
-
+        
+        
 
         public WeatherForm()
         {
             InitializeComponent();
+            labelDateTime.Text = DateTime.Now.ToString("dddd , MMM dd yyyy");
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -43,6 +47,8 @@ namespace SkyNews.GUI
 
         private void WeatherForm_Load(object sender, EventArgs e)
         {
+            
+
             flowLayoutPanelDailyWeather.Visible = false;
 
 
@@ -79,6 +85,10 @@ namespace SkyNews.GUI
 
             labelPressure.Parent = pictureBoxBackground;
             labelPressure.BackColor = Color.Transparent;
+
+            
+
+
         }
 
 
@@ -147,17 +157,14 @@ namespace SkyNews.GUI
         {
             getWeather();
             getForecast();
+            
+            string temp = labelTemp.Text;
+            string cleaned = temp.Replace("°C", "");
+            int temperature = Convert.ToInt32(Math.Floor(Convert.ToDouble(cleaned)).ToString());
 
             WeatherInfo.activities a = new WeatherInfo.activities();
-            List<WeatherInfo.activities> listA = a.GetActivities(labelTemp.Text);
-
-            // Fill Activities
-            foreach (WeatherInfo.activities item in listA)
-            {
-                ListViewItem lvItem = new ListViewItem(item.title.ToString());
-                listViewActivities.Items.Add(lvItem);
-            }
-            
+            List<WeatherInfo.activities> listA = a.GetActivities(temperature);
+            a.DisplayActivities(listViewActivities, listA);
 
             flowLayoutPanelDailyWeather.Visible = true;
         }
@@ -165,6 +172,20 @@ namespace SkyNews.GUI
         private void buttonConnectDB_Click(object sender, EventArgs e)
         {
             MessageBox.Show(UtilityDB.ConnectDB().State.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            WeatherInfo.user u = new WeatherInfo.user();
+            if (u.AlreadyExits(1, textBoxCity.Text))
+            {
+                MessageBox.Show("This location is already in your favorites! Go take a look :)");
+            }
+            else
+            {
+                u.SaveToFavorites(1, textBoxCity.Text);
+            }
+            
         }
     }
 }

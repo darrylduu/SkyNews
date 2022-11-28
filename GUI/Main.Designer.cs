@@ -32,6 +32,7 @@ namespace SkyNews
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBoxCity = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.labelActivities = new System.Windows.Forms.Label();
             this.listViewActivities = new System.Windows.Forms.ListView();
@@ -53,7 +54,6 @@ namespace SkyNews
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelDateTime = new System.Windows.Forms.Label();
-            this.textBoxCity = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureIcon)).BeginInit();
@@ -102,6 +102,13 @@ namespace SkyNews
             this.tabPage1.Text = "Current Location";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // textBoxCity
+            // 
+            this.textBoxCity.Location = new System.Drawing.Point(47, 80);
+            this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.Size = new System.Drawing.Size(346, 23);
+            this.textBoxCity.TabIndex = 20;
             // 
             // flowLayoutPanel
             // 
@@ -312,7 +319,7 @@ namespace SkyNews
             // 
             this.pictureBox1.BackgroundImage = global::SkyNews.Properties.Resources.backgroundForm_03;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(852, 509);
             this.pictureBox1.TabIndex = 20;
@@ -328,13 +335,6 @@ namespace SkyNews
             this.labelDateTime.TabIndex = 1;
             this.labelDateTime.Text = "label1";
             this.labelDateTime.Click += new System.EventHandler(this.labelDateTime_Click);
-            // 
-            // textBoxCity
-            // 
-            this.textBoxCity.Location = new System.Drawing.Point(47, 80);
-            this.textBoxCity.Name = "textBoxCity";
-            this.textBoxCity.Size = new System.Drawing.Size(346, 23);
-            this.textBoxCity.TabIndex = 20;
             // 
             // Main
             // 
